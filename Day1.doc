@@ -1,0 +1,154 @@
+create table Employee(
+	EmpId Number(5) Primary Key,
+	EmpName Varchar2(20),
+	Job Varchar2(10),
+	Manager Number(5),
+	DeptNo Number(5),
+	HireDate Date,
+	Sal Number(7,3));
+
+create table Dept(
+	DeptNo Number(5) Primary key,
+	DeptName Varchar2(20),
+	Location Varchar2(20)	
+	);
+
+alter table Employee
+add Commission Number;
+
+ALTER TABLE Employee
+  modify Job VARCHAR(20);
+
+alter table Dept
+  Drop column Location;
+
+ALTER TABLE Employee
+	rename column sal to salary;
+
+Drop table Dept;
+
+Select 'Franklin' , '20' from DUAL;
+
+select SYSDATE from DUAL;
+
+select 15+10-5*2/5 from DUAL;
+
+select table_name from user_tables;
+
+
+//From Terminal
+
+CREATE TABLE EMPLOYEE(EMPID NUMBER(5) PRIMARY KEY,
+EmpName Varchar2(20),
+Job Varchar2(10),
+Manager Number(5),
+DeptNo Number(5),
+HireDate Date,
+Sal Number(7,3));
+
+
+CREATE TABLE DEPT(
+DeptNo Number(5) Primary key,
+DeptName Varchar2(20),	
+Location Varchar2(20))
+	
+
+ALTER TABLE EMPLOYEE
+ADD COMMISSIONER NUMBER
+
+
+ALTER TABLE EMPLOYEE
+MODIFY JOB VARCHAR(20)
+
+
+ALTER TABLE DEPT
+DROP COLUMN LOCATION
+
+
+ALTER TABLE EMPLOYEE
+RENAME COLUMN SAL TO SALARY
+
+SELECT 'FRANKLIN','20'
+FROM DUAL
+--------------------------------------
+
+SQL> CREATE TABLE EMPLOYEE(EMPID NUMBER(5) PRIMARY KEY,
+  2  EmpName Varchar2(20),
+  3  Job Varchar2(10),
+  4  Manager Number(5),
+  5  DeptNo Number(5),
+  6  HireDate Date,
+  7  Sal Number(7,3));
+
+Table created.
+
+SQL> CREATE TABLE DEPT(
+  2  DeptNo Number(5) Primary key
+  3  DeptName Varchar2(20) 
+  4  Location Varchar2(20))
+  5   ;
+
+
+SQL> CREATE TABLE DEPT(
+  2  DeptNo Number(5) Primary key,
+  3  DeptName Varchar2(20), 
+  4  Location Varchar2(20));
+
+Table created.
+
+SQL> ALTER TABLE EMPLOYEE
+  2  ADD COMMISSIONER NUMBER;
+
+Table altered.
+
+SQL> ALTER TABLE EMPLOYEE
+  2  MODIFY JOB VARCHAR(20);
+
+Table altered.
+
+
+SQL> ALTER TABLE DEPT
+  2  DROP COLUMN LOCATION;
+
+Table altered.
+
+SQL> ALTER TABLE EMPLOYEE
+  2  RENAME COLUMN SAL TO SALARY;
+
+Table altered.
+
+
+SQL> SELECT 'FRANKLIN','20'
+  2  FROM DUAL;
+
+'FRANKLI '2
+---- --
+FRANKLIN 20
+
+SQL> DROP TABLE DEPT;
+
+Table dropped.
+
+
+SQL> SELECT 15+10-5*2/5
+  2  FROM DUAL;
+
+15+10-5*2/5
+-----------
+         23
+
+SQL> select sysdate
+  2  from dual;
+
+SYSDATE
+---------
+02-AUG-17
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+ ------------------------------
+EMPLOYEE
+
+SQL> commit
+  2  ;
