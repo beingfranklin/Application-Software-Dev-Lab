@@ -1,0 +1,317 @@
+ALTER TABLE Employee
+Modify EmpId Varchar2(20);
+ALTER TABLE Employee
+Modify Manager Varchar2(20);
+ALTER TABLE Employee
+Modify DEPTNO Varchar2(20);
+
+
+INSERT INTO EMPLOYEE VALUES (‘E0001’,'JESTO','ANALYST',’E0001’,2,'24-MAR-2011',2500,650);
+
+INSERT INTO EMPLOYEE VALUES (‘E0002’,'JESTO','ANALYST',’E0001’,2,'24-MAR-2011',2500,650);
+
+
+INSERT INTO EMPLOYEE VALUES (‘E0003’,'ADARSH','CLERK',’E0004’,4,'10-JAN-2013',1500,500);
+
+
+INSERT INTO EMPLOYEE VALUES (‘E0004’,'KEVIN','ADMIN',’E0005’,2,'10-OCT-2013',2000,1750);
+
+
+INSERT INTO EMPLOYEE VALUES (‘E0005’,'BONY','MANAGER',’’,1,'11-APR-2011',5000,1000);
+
+
+INSERT INTO EMPLOYEE VALUES (‘E0006’,'MANU','SUPPLIER',’E0001’,3,'19-JUN-2013',5000,450);
+
+INSERT INTO EMPLOYEE VALUES (‘E0001’,'ABEY','TESTER',’E0004’,4,'15-DEC-2012',3000,500);
+
+
+
+CREATE TABLE DEPT
+(
+DeptNo	Number(5) Primary key,
+DeptName Varchar2(20),	
+Location Varchar2(20));	
+
+create table CLIENT
+(
+Cno	Varchar2(6),
+Name	Varchar2(20),
+Address	Varchar2(30),
+City	Varchar2(15),
+PinCode	Number(8),
+State	Varchar2(15),
+Baldue	Number(10,2));
+
+
+INSERT INTO DEPT
+VALUES (
+001,'DeptA','A block');
+INSERT INTO DEPT
+VALUES (
+002,'DeptB','B block');
+INSERT INTO DEPT
+VALUES (
+003,'DeptC','C block');
+INSERT INTO DEPT
+VALUES (
+004,'DeptD','D block');
+
+
+INSERT INTO CLIENT VALUES(
+'C01','Nimmy','Cochin',680324,'Kerala',14000);
+INSERT INTO CLIENT VALUES(
+'C02','Susan','Cochin',680324,'Kerala',0);
+INSERT INTO CLIENT VALUES(
+'C03','Anjana','Salem',680345,'TamilNadu',5000);
+INSERT INTO CLIENT VALUES(
+'C04','Sneha','Pune',680223,'Maharashtra',500);
+INSERT INTO CLIENT VALUES(
+'C05','Annet','Gandipuram',680321,'Karnataka',7600);
+INSERT INTO CLIENT VALUES(
+'C06','Ann','Bombay',682111,'Maharashtra',2055);
+
+
+a.  Display the entire contents of the tables.
+
+SELECT *FROM EMPLOYEE;
+
+     EMPID EMPNAME              JOB                  MANAGER    DEPTNO
+---------- -------------------- -------------------- ---------- ----------
+HIREDATE      SALARY COMMISSIONER
+--------- ---------- ------------
+         1 Abey                 Tester               E0004      D004
+15-DEC-12       3000          500
+
+         2 Jesto                Analyst              E0001      D002
+24-APR-11       2500          650
+
+         3 Adarsh               Clerk                E0004      D004
+10-JAN-13       1500         5000
+
+
+     EMPID EMPNAME              JOB                  MANAGER    DEPTNO
+---------- -------------------- -------------------- ---------- ----------
+HIREDATE      SALARY COMMISSIONER
+--------- ---------- ------------
+         4 Kevin                Admin                E0005      D002
+10-OCT-13       2000         1750
+
+         5 Bony                 Manager              E0001      D005
+11-APR-11       5000         1000
+
+         6 Manu                 Supplier             E0001      D003
+19-JUN-13       5000          450
+SELECT *FROM DEPT;
+
+-----------------------------------
+DEPTNO     DEPTNAME             LOCATION
+---------- -------------------- --------------------
+D001       DeptA                A block
+D002       DeptB                B block
+D003       DeptC                C block
+D004       DeptD                D block
+-------------------------------------------------------
+
+  SELECT *FROM CLIENT ;
+
+CNO    NAME                 CITY               PINCODE STATE
+------ -------------------- --------------- ---------- ---------------
+    BALDUE
+----------
+C01    Nimmy                Cochin              680324 Kerala
+     14000
+
+C02    Susan                Cochin              680324 Kerala
+         0
+
+C03    Anjana               DELHI               680345 TamilNadu
+      5000
+
+
+CNO    NAME                 CITY               PINCODE STATE
+------ -------------------- --------------- ---------- ---------------
+    BALDUE
+----------
+C04    Sneha                Pune                680223 Maharashtra
+       500
+
+C05    Annet                Gandipuram          680321 Karnataka
+      7600
+
+C06    Ann                  Bombay              682111 Maharashtra
+      2055
+
+
+b. Insert a new employee with EmpId=E0001.
+INSERT INTO EMPLOYEE VALUES(
+'E0001','A','TestDose','E0005','D004','1-DEC-02',6000,200);
+
+c. Display the first 4 rows of the Client table.
+
+SELECT *
+FROM CLIENT
+WHERE ROWNUM <=4;
+
+
+CNO    NAME                 CITY               PINCODE STATE
+------ -------------------- --------------- ---------- ---------------
+    BALDUE
+----------
+C01    Nimmy                Cochin              680324 Kerala
+     14000
+
+C02    Susan                Cochin              680324 Kerala
+         0
+
+C03    Anjana               Salem               680345 TamilNadu
+      5000
+
+
+CNO    NAME                 CITY               PINCODE STATE
+------ -------------------- --------------- ---------- ---------------
+    BALDUE
+----------
+C04    Sneha                Pune                680223 Maharashtra
+       500
+---------------------------------------------------------------------------
+
+d. Retrieve the names, Hire date and Salary of all employees.
+
+SELECT EMPNAME,HIREDATE,SALARY
+FROM EMPLOYEE;
+
+
+
+
+EMPNAME              HIREDATE      SALARY
+-------------------- --------- ----------
+Abey                 15-DEC-12       3000
+Jesto                24-APR-11       2500
+Adarsh               10-JAN-13       1500
+Kevin                10-OCT-13       2000
+Bony                 11-APR-11       5000
+Manu                 19-JUN-13       5000
+
+e. List all employees whose name starts with ‘A’ or ‘K’.
+SELECT EMPNAME  FROM EMPLOYEE WHERE EMPNAME LIKE 'A%' OR EMPNAME LIKE 'K%';
+
+EMPID                EMPNAME              JOB
+-------------------- -------------------- --------------------
+MANAGER              DEPTNO               HIREDATE      SALARY COMMISSION
+-------------------- -------------------- --------- ---------- ----------
+E0003                ADARSH               CLERK
+E0004                4                    10-JAN-13       1500        500
+
+E0004                KEVIN                ADMIN
+E0005                2                    10-OCT-13       2000       1750
+
+f. Display the distinct cities to which the clients belong.
+SELECT DISTINCT CITY FROM CLIENT;
+
+CITY
+---------------
+Bombay
+Cochin
+Salem
+Gandipuram
+Pune
+
+g. List all employees whose name falls in the alphabetical range ‘E to L’.
+
+SELECT EMPNAME  FROM EMPLOYEE  WHERE EMPNAME BETWEEN 'E%' AND 'L%';
+
+
+EMPNAME
+--------------------
+Jesto
+Kevin
+------------------------------------------------
+h. Change the city of Client No: C03 from ‘Salem’ to ‘Delhi’.
+
+UPDATE CLIENT SET CITY='DELHI' WHERE CNO='C03';
+
+
+
+SQL> SELECT *FROM CLIENT
+  2  ;
+
+CNO    NAME                 CITY               PINCODE STATE
+------ -------------------- --------------- ---------- ---------------
+    BALDUE
+----------
+C01    Nimmy                Cochin              680324 Kerala
+     14000
+
+C02    Susan                Cochin              680324 Kerala
+         0
+
+C03    Anjana               DELHI               680345 TamilNadu
+      5000
+
+
+CNO    NAME                 CITY               PINCODE STATE
+------ -------------------- --------------- ---------- ---------------
+    BALDUE
+----------
+C04    Sneha                Pune                680223 Maharashtra
+       500
+
+C05    Annet                Gandipuram          680321 Karnataka
+      7600
+
+C06    Ann                  Bombay              682111 Maharashtra
+      2055
+
+i. Change the Commission of employee ‘Manu’ to 600.
+UPDATE EMPLOYEE
+SET COMM=600
+WHERE EMPNAME='Manu';
+
+j. List all from employee table and display in the following format: “Annet from Gandhipuram has 0 Balance due”.
+SELECT NAME || 'from' || CITY || 'has' || BALDUE || 'Balance due'
+FROM CLIENT;
+
+
+NAME                 'FRO CITY            'HA     BALDUE 'BALANCEDUE
+-------------------- ---- --------------- --- ---------- -----------
+Nimmy                from Cochin          has      14000 Balance due
+Susan                from Cochin          has          0 Balance due
+Anjana               from DELHI           has       5000 Balance due
+Sneha                from Pune            has        500 Balance due
+Annet                from Gandipuram      has       7600 Balance due
+Ann                  from Bombay          has       2055 Balance due
+---------------------------------------------------------------------------
+
+k. Display the column name ‘Baldue’ of Client table as “Due Balance”
+SELECT BALDUE AS DUEBALANCE
+FROM CLIENT;
+
+
+DUEBALANCE
+----------
+14000
+0
+5000
+500
+7600
+2055
+
+
+l. List all clients who are not from ‘Kerala’.
+SELECT NAME
+FROM CLIENT
+WHERE NOT CITY='Kerala';
+
+NAME
+--------------------
+Nimmy
+Susan
+Anjana
+Sneha
+Annet
+Ann
+
+
+
+
+
