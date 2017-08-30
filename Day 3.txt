@@ -1,0 +1,9 @@
+
+alter table Employee add constraint uq Unique(job);
+alter table Employee add constraint cn CHECK (Commission>400);
+alter table Employee modify Salary Default 25000;
+insert into Employee values(8,'Hari','Dis',1,2,'12 Feb 16',NULL,600);
+delete from Employee where EmpId=8;
+alter table Employee Drop Unique(job);
+select * from all_constraints where table_name = 'EMPLOYEE';
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME='EMPLOYEE';

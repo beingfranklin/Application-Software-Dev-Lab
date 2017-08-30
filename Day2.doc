@@ -28,7 +28,7 @@ INSERT INTO EMPLOYEE VALUES (‘E0001’,'ABEY','TESTER',’E0004’,4,'15-DEC-2012',300
 
 CREATE TABLE DEPT
 (
-DeptNo	Number(5) Primary key,
+DeptNo	Varchar2(5) Primary key,
 DeptName Varchar2(20),	
 Location Varchar2(20));	
 
@@ -45,16 +45,16 @@ Baldue	Number(10,2));
 
 INSERT INTO DEPT
 VALUES (
-001,'DeptA','A block');
+‘1’,'DeptA','A block');
 INSERT INTO DEPT
 VALUES (
-002,'DeptB','B block');
+‘2’,'DeptB','B block');
 INSERT INTO DEPT
 VALUES (
-003,'DeptC','C block');
+‘3’,'DeptC','C block');
 INSERT INTO DEPT
 VALUES (
-004,'DeptD','D block');
+‘4’,'DeptD','D block');
 
 
 INSERT INTO CLIENT VALUES(
